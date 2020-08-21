@@ -1,0 +1,20 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<h1>This is new order form page</h1>
+<ul>
+	<li>Code need to set automatically(not manually add) </li>
+	<li>Image now set null=True, blank=True(git error when set as required...) ==> must set to required </li>
+	<li>Redirect page need to set to customer dashboard </li>
+	<li>Customer =one to one User => customer can request </li>
+</ul>
+
+<form action="" method="POST">
+	{% csrf_token %}
+	{{form.as_p}}
+
+	<input type="submit" name="Submit">
+
+</form>
+
+{% endblock  %}

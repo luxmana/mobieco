@@ -1,0 +1,28 @@
+<style>
+  .hello-msg{
+    font-size: 18px;
+    color: #fff;
+    margin-right: 20px;
+  }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="{% url 'home' %}">MOBIECO</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-link" href="{% url 'my_dashboard' %}">Autoparts</a>
+      <a class="nav-item nav-link" href="{% url 'account' %}">Settings</a>
+      <a class="nav-item nav-link" href="#">My Account</a>
+      <a class="nav-item nav-link" href="#">My garrage</a>
+      <a class="nav-item nav-link" href="{% url 'staff_dashboard' %}">M.Staff</a>
+      <a class="nav-item nav-link" href="#">M.Logistic</a>
+      <a class="nav-item nav-link" href="#">M.Purchase</a>
+    </div>
+  </div>
+    <span class="hello-msg">Hello, {{request.user}}</span>
+  <span ><a  class="hello-msg" href="{% url 'logout' %}">| Logout</a></span>
+</nav>

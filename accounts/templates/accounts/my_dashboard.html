@@ -1,0 +1,59 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+{%  include 'accounts/user_status.html' %}
+<section id="actions" class="py-2">
+    <div class="container">
+		<div class="row">
+			<div class="col-md-3">
+				<a href="{%url 'create_request' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">
+					<i class="fas fa-plus"></i> New request
+				</a>
+				<a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">XXX</a>
+			</div>
+			<form class="form-inline md-form mr-auto py-2">
+			  <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+			  <button class="btn btn-outline-warning btn-rounded btn-sm my-0" type="submit">Search</button>
+			</form>
+		</div>
+	</div>
+</section>
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Order Requests</h5>
+		</div>
+		<div class="card card-body">
+			<table class="table">
+				<tr>
+					<th>Action</th>
+					<th>Ref. Code</th>
+					<th>Image</th>
+					<th>Link</th>
+					<th>Request Price</th>
+					<th>Final Price</th>
+					<th>Status</th>
+					<th>Freight</th>
+				</tr>
+				{% for request in my_orders %}
+				<tr>
+					<td>{{request.ref_code}}</td>
+					<td>{{request.ref_code}}</td>
+					<td>{{request.ref_code}}</td>
+					<td><a href= "{{ request.link }}" >Link here</a></td>
+					<td>{{ request.price }}</td>
+					<td>{{ request.draft }}</td>
+					<td>{{ request.logistic_method }}</td>
+					<td>{{ request.note }}</td>
+				</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

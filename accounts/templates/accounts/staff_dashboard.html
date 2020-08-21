@@ -1,0 +1,51 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+{%  include 'accounts/staff_status.html' %}
+
+<div class="row mx-2">
+	<div class="col-md-3">
+		<form class="form-inline md-form mr-auto mb-4">
+		  <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+		  <button class="btn btn-outline-warning btn-rounded btn-sm my-0" type="submit">Search</button>
+		</form>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body py-1" >
+			<h5>Purchase Requests</h5>
+		</div>
+		<div class="card card-body">
+			<table class="table">
+				<tr>
+					<th>Code</th>
+					<th>Link</th>
+					<th>Request Price</th>
+					<th>Status</th>
+					<th>Logistic</th>
+					<th>Customer</th>
+					<th>Action</th>
+				</tr>
+				{% for request in orders_requests %}
+				<tr>
+					<td>{{request.ref_code}}</td>
+					<td><a href= "{{ request.link }}" >Link here</a></td>
+					<td>{{ request.price }}</td>
+					<td>{{ request.draft }}</td>
+					<td>{{ request.logistic_method }}</td>
+					<td>{{ request.user}}</td>
+				</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+</div>
+
+<ul>
+	<li>make link show which website </li>
+	<li>Filtering based on new, ongoing, make payment </li>
+</ul>
+{% endblock %}

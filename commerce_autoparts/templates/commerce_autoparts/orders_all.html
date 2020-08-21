@@ -1,0 +1,36 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+		<br>
+
+		<div class="row">
+			<div class="col-md">
+				<div class="card card-body">
+					<h5>Order Requests</h5>
+				</div>
+				<div class="card card-body">
+					<table class="table">
+						<tr>
+							<th>Code</th>
+							<th>Link</th>
+							<th>Request Price</th>
+							<th>Draft</th>
+							<th>Logistic</th>
+						</tr>
+						{% for request in orders_requests %}
+						<tr>
+							<td>{{ request.order_code }}</td>
+							<td>{{ request.link }}</td>
+							<td>{{ request.price }}</td>
+							<td>{{ request.draft }}</td>
+							<td>{{ request.logistic_method }}</td>
+						</tr>
+						{% endfor %}
+
+					</table>
+				</div>
+			</div>
+
+		</div>
+
+{% endblock content %}
