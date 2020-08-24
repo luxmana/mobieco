@@ -1,3 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .models import *
 
-# Create your views here.
+
+def autoparts_main(request):
+    return render(request, 'car_profile/my_garage.html')

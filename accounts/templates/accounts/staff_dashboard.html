@@ -15,7 +15,7 @@
 <div class="row">
 	<div class="col-md">
 		<div class="card card-body py-1" >
-			<h5>Purchase Requests</h5>
+			<h5>Purchase Requests List</h5>
 		</div>
 		<div class="card card-body">
 			<table class="table">
@@ -23,19 +23,26 @@
 					<th>Code</th>
 					<th>Link</th>
 					<th>Request Price</th>
+					<th>Final Price</th>
 					<th>Status</th>
 					<th>Logistic</th>
 					<th>Customer</th>
 					<th>Action</th>
+					<th> </th>
+					<th>Remarks </th>
 				</tr>
 				{% for request in orders_requests %}
 				<tr>
 					<td>{{request.ref_code}}</td>
 					<td><a href= "{{ request.link }}" >Link here</a></td>
 					<td>{{ request.price }}</td>
-					<td>{{ request.draft }}</td>
+					<td>Yen 9999.00</td>
+					<td>xxxxx</td>
 					<td>{{ request.logistic_method }}</td>
 					<td>{{ request.user}}</td>
+					<td><a class ="btn btn-sm btn-info" href= "{{ purchase_update }}" >Update Price</a></td>
+					<td><a class ="btn btn-sm btn-warning" href= "#" >Update Status</a></td>
+
 				</tr>
 				{% endfor %}
 

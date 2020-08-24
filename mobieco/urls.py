@@ -29,4 +29,7 @@ urlpatterns = [
     # request purchase
     path('', include('commerce_autoparts.urls')),
 
+    # car profile
+    path('', include('car_profile.urls')),
+
 ]

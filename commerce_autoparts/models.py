@@ -33,6 +33,7 @@ class Currency(models.Model):
     def __str__(self):
         return self.c_rate
 
+
 class OrderRequest(models.Model):
     user = models.ForeignKey(Customer, on_delete=models.CASCADE,null=True, blank=True)
     ref_code = models.CharField(max_length=100,blank=True, default='ABC')
@@ -45,12 +46,12 @@ class OrderRequest(models.Model):
     date_order = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return str(self.user)
-
+        return str(self.ref_code)
 
 class RequestStatus(models.Model):
     rs_item = models.ForeignKey(OrderRequest, on_delete=models.CASCADE,null=True, blank=True)
     rs_status = models.ForeignKey(Status, on_delete=models.CASCADE,null=True, blank=True)
+
 
 class PurchaseUpdate(models.Model):
     pu_item = models.OneToOneField(OrderRequest,on_delete=models.CASCADE,null=True, blank=True )
@@ -58,6 +59,7 @@ class PurchaseUpdate(models.Model):
     pu_deliveryfee = models.IntegerField(null=True, blank=True)
     pu_intdeliveryfee = models.IntegerField(null=True, blank=True)
     pu_rank = models.IntegerField(null=True, blank=True)
+    pu_complete =models.BooleanField(default=False, null=True, blank=True)
 
 
 

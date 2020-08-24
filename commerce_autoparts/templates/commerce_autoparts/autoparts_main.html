@@ -1,0 +1,38 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<button class="btn btn-primary" type="submit">Performance</button>
+			<button class="btn btn-primary" type="submit">Exterior</button>
+			<button class="btn btn-primary" type="submit">Interior</button>
+		</div>
+	<div class="btn-group btn-group-toggle" data-toggle="buttons">
+		<h4> My car items </h4>
+		<label class="btn btn-secondary active">
+			<input type="radio" name="options" id="option1" checked> Yes
+		</label>
+		<label class="btn btn-secondary">
+			<input type="radio" name="options" id="option2"> No
+		</label>
+	</div>
+	<div class="col-md-4">
+		<a href="{%url 'create_request' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">
+			<i class="fas fa-plus"></i> New request
+		</a>
+	</div>
+	<div>
+	<form class="form-inline md-form mr-auto py-2">
+		<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+		<button class="btn btn-outline-warning btn-rounded btn-sm my-0" type="submit">Search</button>
+	</form>
+	</div>
+	</div>
+</div>
+
+
+<h1> this will show all product</h1>
+
+{% endblock content %}

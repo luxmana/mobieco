@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import OrderRequest
+from .models import OrderRequest, PurchaseUpdate
 
 class CreateRequestForm(ModelForm):
     class Meta:
@@ -10,3 +10,7 @@ class CreateRequestForm(ModelForm):
             'ref_code'
                    ]
 
+class PurchaseUpdateForm(ModelForm):
+    class Meta:
+        model = PurchaseUpdate
+        fields = '__all__'

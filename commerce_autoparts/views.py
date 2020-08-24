@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import *
-from .forms import CreateRequestForm
+from .forms import CreateRequestForm, PurchaseUpdateForm
 from django.contrib.auth.decorators import login_required
 from accounts.models import *
 import uuid
@@ -33,3 +33,18 @@ def createRequest(request):
 def orders_request(request):
     orders_requests = OrderRequest.objects.all()
     return render(request, 'commerce_autoparts/orders_all.html', {'orders_requests': orders_requests})
+
+def purchase_update(request):
+    form = PurchaseUpdateForm(request.POST)
+    if request.method =='POST':
+        form = PurchaseUpdateForm(request.POST)
+        instance = form.save(commit=False)
+        instance.pu_item = request.ref_code
+        instance.save()
+    context = {
+        'form':form
+    }
+    return render(request, 'commerce_autoparts/purchase_update.html', context)
+
+def autoparts_main(request):
+    return render(request, 'commerce_autoparts/autoparts_main.html')
