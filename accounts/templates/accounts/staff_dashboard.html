@@ -40,7 +40,7 @@
 					<td>xxxxx</td>
 					<td>{{ request.logistic_method }}</td>
 					<td>{{ request.user}}</td>
-					<td><a class ="btn btn-sm btn-info" href= "{{ purchase_update }}" >Update Price</a></td>
+					<td><a class ="btn btn-sm btn-info" href= "{% url 'purchase_update' orderrequest.id %}" >Update Price</a></td>
 					<td><a class ="btn btn-sm btn-warning" href= "#" >Update Status</a></td>
 
 				</tr>

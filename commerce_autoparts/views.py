@@ -34,13 +34,9 @@ def orders_request(request):
     orders_requests = OrderRequest.objects.all()
     return render(request, 'commerce_autoparts/orders_all.html', {'orders_requests': orders_requests})
 
-def purchase_update(request):
-    form = PurchaseUpdateForm(request.POST)
-    if request.method =='POST':
-        form = PurchaseUpdateForm(request.POST)
-        instance = form.save(commit=False)
-        instance.pu_item = request.ref_code
-        instance.save()
+def purchase_update(request,pk):
+    cus_request = orderrequest.objects.get(id=pk)
+    form = PurchaseUpdateForm()
     context = {
         'form':form
     }
